@@ -17,6 +17,10 @@ body {
   margin: 20px;
 }
 
+.timer-title {
+  text-align: center;
+}
+
 .timer-title span {
   color: rgba(239, 55, 203, 0.46);
 }
@@ -36,6 +40,9 @@ body {
 }
 
 @media (max-width: 768px) {
+  #root {
+    width: 80%;
+  }
   .timer-container {
     flex-direction: column;
   }
