@@ -1,4 +1,4 @@
-### [Open Online Stopwatch with Netlify](https://bilol-salimov-online-stopwatch.netlify.app/)
+# [Open Online Stopwatch with Netlify](https://bilol-salimov-online-stopwatch.netlify.app/)
 
 # Getting Started with Create React App
 
