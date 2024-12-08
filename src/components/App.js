@@ -6,10 +6,11 @@ class App extends React.Component {
     minute: 0,
     second: 0,
     btnDisabled: false,
+    interval: "",
   };
 
   startClicked = () => {
-    setInterval(() => {
+    let timer = setInterval(() => {
       let { second, minute, hour, btnDisabled } = this.state;
       this.setState({
         btnDisabled: true,
@@ -34,6 +35,16 @@ class App extends React.Component {
         });
       }
     }, 100);
+    this.setState({
+      interval: timer,
+    });
+  };
+
+  stopClicked = () => {
+    clearInterval(this.state.interval);
+    this.setState({
+      btnDisabled: false,
+    });
   };
 
   render() {
@@ -71,7 +82,13 @@ class App extends React.Component {
             </button>
           </div>
           <div className="timer-button">
-            <button className="btn btn-danger">Stop</button>
+            <button
+              onClick={this.stopClicked}
+              className="btn btn-danger"
+              disabled={!btnDisabled}
+            >
+              Stop
+            </button>
           </div>
           <div className="timer-button">
             <button className="btn btn-secondary">Interval</button>
