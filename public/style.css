@@ -2,7 +2,7 @@ body {
   background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147));
   background-repeat: no-repeat;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,6 +15,33 @@ body {
   display: flex;
   align-items: center;
   margin: 20px;
+}
+
+.timer-container-interval {
+  padding: 15px;
+  background-color: #080808;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+  overflow-y: auto;
+  height: 165px;
+}
+
+.timer-container-interval::-webkit-scrollbar {
+  width: 4px;
+}
+
+.timer-container-interval::-webkit-scrollbar-thumb {
+  background-color: gold;
+  border-radius: 5px;
+}
+
+.timer-container-interval p {
+  color: #1870ed;
+  margin-bottom: 0;
+  margin: 10px 0;
 }
 
 .timer-title {

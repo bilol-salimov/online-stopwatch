@@ -7,6 +7,7 @@ class App extends React.Component {
     second: 0,
     btnDisabled: false,
     interval: "",
+    intervalsStorage: [],
   };
 
   startClicked = () => {
@@ -47,8 +48,22 @@ class App extends React.Component {
     });
   };
 
+  intervalClicked = () => {
+    let { hour, minute, second, btnDisabled, intervalsStorage } = this.state;
+    if (second < 10) {
+      second = `0${second}`;
+    }
+    if (minute < 10) {
+      minute = `0${minute}`;
+    }
+    intervalsStorage.push(`${hour}:${minute}:${second}`);
+    this.setState({
+      intervalsStorage: intervalsStorage,
+    });
+  };
+
   render() {
-    const { hour, minute, second, btnDisabled } = this.state;
+    const { hour, minute, second, btnDisabled, intervalsStorage } = this.state;
     return (
       <div>
         <div className="timer-container">
@@ -91,11 +106,27 @@ class App extends React.Component {
             </button>
           </div>
           <div className="timer-button">
-            <button className="btn btn-secondary">Interval</button>
+            <button
+              onClick={this.intervalClicked}
+              className="btn btn-secondary"
+              disabled={!btnDisabled}
+            >
+              Interval
+            </button>
           </div>
           <div className="timer-button">
             <button className="btn btn-warning">Clear</button>
           </div>
+        </div>
+
+        <div className="timer-container-interval">
+          {intervalsStorage.map((item, index) => {
+            return (
+              <p>
+                {index + 1}) <i class="bi bi-arrow-right"></i> {item}
+              </p>
+            );
+          })}
         </div>
       </div>
     );
