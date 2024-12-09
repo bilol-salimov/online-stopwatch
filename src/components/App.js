@@ -35,7 +35,7 @@ class App extends React.Component {
           second: second + 1,
         });
       }
-    }, 100);
+    }, 1000);
     this.setState({
       interval: timer,
     });
@@ -59,6 +59,16 @@ class App extends React.Component {
     intervalsStorage.push(`${hour}:${minute}:${second}`);
     this.setState({
       intervalsStorage: intervalsStorage,
+    });
+  };
+
+  clearClicked = () => {
+    this.stopClicked();
+    this.setState({
+      hour: 0,
+      minute: 0,
+      second: 0,
+      intervalsStorage: [],
     });
   };
 
@@ -115,7 +125,9 @@ class App extends React.Component {
             </button>
           </div>
           <div className="timer-button">
-            <button className="btn btn-warning">Clear</button>
+            <button onClick={this.clearClicked} className="btn btn-warning">
+              Clear
+            </button>
           </div>
         </div>
 
